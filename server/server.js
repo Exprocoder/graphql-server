@@ -2,7 +2,11 @@ var express = require('express');
 var mongoose = require("mongoose");
 var express_graphql = require('express-graphql');
 var schema = require("./graphql/schema");
+var cors = require("cors");
+
 var app = express();
+
+app.use(cors());
 
 mongoose.connect("mongodb://test:test12@ds247330.mlab.com:47330/library");
 mongoose.connection.once("open", () => console.log("connected to database"));
